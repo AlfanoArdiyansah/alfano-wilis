@@ -1,0 +1,291 @@
+:root {
+  --primary: #72fdfd;
+  --bg: rgb(19, 18, 17);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+  background-color: var(--bg);
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgba(29, 25, 25, 0.9);
+  border-bottom: 1px solid #8d7746;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffff;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: var(--primary);
+}
+
+.navbar-nav a {
+  color: white;
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-extra a {
+  color: white;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+
+#menu {
+  display: none;
+}
+/* akhir navbar */
+
+/* hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../img/bg2.jpg");
+  background-repeat: no-repeat;
+  background-size:cover ;
+  background-position: center;
+}
+
+  .hero .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+
+.hero .content h1 {
+  font-size: 3em;
+  text-shadow: 1px 1px 10px rgba(110, 90, 53, 0.8);
+}
+
+.hero .content h1 span {
+  color: var(--primary);
+}
+
+.hero .content p {
+  text-shadow: 1px 1px 15px rgba(147, 230, 92, 0.8);
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.hero .content .cta {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  font-weight: 700;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 15px rgba(12, 17, 18, 0.7);
+}
+
+.hero .content .cta:hover {
+  color: #e7de55;
+  background-color: rgb(165, 238, 136);
+}
+/* akhir hero section */
+
+/* about */
+.about {
+  padding: 8rem 7% 8rem;
+}
+
+.about h2, .contact h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about h2 span, .contact h2 span {
+  color: var(--primary);
+}
+
+.about .row {
+  display: flex;
+}
+
+.about .row .about-img {
+  flex: 1 1 45rem;
+}
+
+.about .row .about-img img {
+  width: 100%;
+}
+
+.about .row .content {
+  flex-shrink: 1 1 35rem;
+  padding: 0 1rem;
+}
+
+.about .row .content h3 {
+  font-size: 2rem;
+  margin-bottom: 1.7rem;
+}
+
+.about .row .content p {
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.about .row .content span {
+  color: var(--primary);
+}
+
+
+/* akhir about */
+
+/* kontak */
+.contact h2 {
+  margin-bottom: 1rem;
+}
+.contact p {
+  text-align: center;
+  max-width: 30rem;
+  margin: auto;
+}
+/* akhir kontak */
+
+
+/* kontak */
+.contact {
+  padding: 8rem 7% 15rem;
+  background-color: #1f1d1d;
+}
+
+.contact .row {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.contact .row .map {
+  width: 80%;
+  height: 35rem;
+  margin: auto;
+  margin-top: 2rem ;
+}
+/* akhir kontak */
+
+
+/* footer */
+.footer {
+  padding: 2rem 0;
+  background-color: #224d43;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.footer p {
+  text-align: center;
+}
+
+.footer a {
+  color: rgb(238, 220, 118);
+}
+
+.footer .icon {
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+.footer .icon a:hover {
+  color: var(--bg);
+}
+
+.footer .icon a {
+  color: #ffff;
+}
+/* akhir footer */
+
+/* media queries */
+
+/* laptop */
+@media (max-width:1366px) {
+  html {
+    font size : 75% ;
+  }
+}
+
+/* tblt */
+@media (max-width:786px) {
+  html {
+    font-size: 62.5%;
+  }
+  #menu {
+    display: inline-block;
+  }
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: white;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+.navbar .navbar-nav.active {
+  right: 0;
+}
+
+.navbar .navbar-nav a {
+  color: var(--bg);
+  display: block;
+  margin: 1.5rem;
+  padding: 0.6;
+  font-size: 2rem;
+}
+
+.about .row{
+  flex-wrap: wrap;
+}
+
+.about .row .content {
+  margin-top: 2rem;
+}
+
+  color: var(--primary);
+}
+
+
+/* hp */
+@media (max-width:480px) {
+  html {
+    font size : 55% ;
+  }
+}
