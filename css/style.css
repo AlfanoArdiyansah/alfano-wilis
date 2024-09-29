@@ -62,12 +62,144 @@ html {
 }
 
 .navbar .navbar-extra a:hover {
-  color: var(--primary);
+  color: #7e7272;
 }
 
 #menu {
   display: none;
 }
+
+/* shopping cart */
+#shopping-cart-button {
+  position: relative;
+}
+
+#shopping-cart-button .quantity-badge {
+  display: inline-block;
+  padding: 1px 5px;
+  background-color: red;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  position: absolute;
+  top: 0;
+  right: -10px;
+} 
+
+.shopping-cart {
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  height: 100vh;
+  width: 26rem;
+  padding: 0 1.5rem;
+  background-color: #ffff;
+  color: #242020;
+  transition: 0.3s;
+}
+
+.shopping-cart.active {
+  right: 0;
+}
+
+.shopping-cart .cart-item {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #311d1d;
+  position: relative;
+}
+
+.shopping-cart img {
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.shopping-cart h3 {
+  font-size: 1.4rem;
+}
+
+.shopping-cart .item-price {
+  font-size: 1rem;
+}
+
+.shopping-cart .cart-item #add,
+.shopping-cart .cart-item #remove {
+  display: inline-block;
+  padding: 2px 5px;
+  cursor: pointer;
+  margin: 0 8px;
+  background-color: rgb(124, 146, 140);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.shopping-cart .total {
+  font-size: 1.4rem;
+  margin-top: -1rem;
+  text-align: center;
+  font-weight: 200;
+}
+
+.shopping-cart .k-kosong {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* checkout form */
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px dashed black;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.form-container h5 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.form-container form {
+  width: 100%;
+  text-align: center;
+}
+
+.form-container label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.form-container span {
+  text-align: right;
+}
+
+.form-container input {
+  background-color: #e7e5e5;
+  padding: 5px;
+  font-size: 1rem;
+  width: 70%;
+}
+
+.form-container .checkout-button {
+  padding: 6px 14px;
+  background-color: rgb(0, 199, 199);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 20px;
+  margin: 1rem auto;
+  cursor: pointer;
+}
+
 /* akhir navbar */
 
 /* hero section */
@@ -101,10 +233,14 @@ html {
   margin-top: 2rem;
 }
 
+.hero .content p span {
+  color: var(--primary);
+}
+
 .hero .content .cta {
   display: inline-block;
   margin-top: 0.6rem;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   font-size: 1.4rem;
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
@@ -122,16 +258,16 @@ html {
 
 /* about */
 .about {
-  padding: 8rem 7% 8rem;
+  padding: 8rem 7% 15rem;
 }
 
-.about h2, .contact h2 {
+.about h2, .contact h2, .product h2 {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
-.about h2 span, .contact h2 span {
+.about h2 span, .contact h2 span, .product h2 span {
   color: var(--primary);
 }
 
@@ -145,6 +281,7 @@ html {
 
 .about .row .about-img img {
   width: 100%;
+  margin: 1rem 0;
 }
 
 .about .row .content {
@@ -154,7 +291,8 @@ html {
 
 .about .row .content h3 {
   font-size: 2rem;
-  margin-bottom: 1.7rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
 }
 
 .about .row .content p {
@@ -170,11 +308,84 @@ html {
 
 /* akhir about */
 
+/* produk */
+.product {
+  padding: 7rem 7% 1.4rem ;
+}
+
+
+.product .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+} 
+
+.product .product-card {
+  text-align: center;
+  border: 1px solid grey;
+  padding: 1rem;
+}
+
+.product .product-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.product .product-icons a {
+  width: 4rem;
+  height: 4rem;
+  color: #ffff;
+  margin: 0.3rem;
+  border: 1px solid grey;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  background-color: rgb(255, 255, 255);
+}
+
+.product .product-icons a:hover {
+  background-color: #2b3f38;
+}
+
+.product .product-image {
+  padding: 1rem 0;
+}
+
+.product .product-img img {
+  height: 20rem;
+}
+
+.product .product-content h3 {
+  font-size: 2rem;
+}
+
+.product .product-stars {
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  color: var(--primary);
+}
+
+ .product-stars .star {
+  fill: var(--primary); 
+}
+
+.product .product-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* akhir produk */
+
+
 /* kontak */
 .contact h2 {
   margin-bottom: 1rem;
 }
-.contact p {
+.contact p, .product p {
   text-align: center;
   max-width: 30rem;
   margin: auto;
@@ -232,6 +443,85 @@ html {
 }
 /* akhir footer */
 
+/* modal box*/
+/* item detail */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-container {
+  position: relative;
+  background-color: #fefefe;
+  color: var(--bg);
+  margin: 15% auto;
+  padding: 1.2rem;
+  border: 1px solid #f3a0a0;  
+  width: 80%;
+  height: 55%;
+  animation: modal 0.4s ;
+}
+
+/* modal animasi */
+@keyframes modal {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-container .close-icon {
+  position: absolute;
+  right: 1rem;
+}
+
+.modal-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.modal-content img {
+  height: 17rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-top: 0.7rem;
+}
+
+.modal-content a {
+  display: flex;
+  gap: 1rem;
+  width: 12rem;
+  background-color: #325751;
+  color: white;
+  margin-top: 0.6rem;
+  padding: 1rem 1.6rem;
+}
+
+.modal-container .close-icon {
+ position: absolute;
+ right: 1rem ;
+}
+  /* margin-left: 2rem; */
+}
+
+
 /* media queries */
 
 /* laptop */
@@ -279,13 +569,30 @@ html {
   margin-top: 2rem;
 }
 
-  color: var(--primary);
+.modal-container {
+ width: 70%;
 }
 
 
+.modal-content {
+  flex-wrap: wrap;
+}
+
+.modal-content a {
+  margin-top: 0.5rem;
+}
+ 
+}
 /* hp */
 @media (max-width:480px) {
   html {
     font size : 55% ;
+  }
+}
+
+/*  */
+@media (max-width:657px) {
+  .modal-container {
+  height: 65%;
   }
 }
